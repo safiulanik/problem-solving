@@ -1,6 +1,6 @@
 """
 URL: https://codeforces.com/problemset/problem/119/A
-Author: safiulanik at gmail.com
+Author: Safiul Kabir [safiulanik at gmail.com]
 """
 
 
