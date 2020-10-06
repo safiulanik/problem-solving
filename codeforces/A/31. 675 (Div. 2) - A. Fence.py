@@ -1,5 +1,5 @@
 """
-URL: https://codeforces.com/problemset/problem/1374/C
+URL: https://codeforces.com/problemset/problem/1422/A
 Author: Safiul Kabir [safiulanik at gmail.com]
 Tags: geometry, math, *800
 """
