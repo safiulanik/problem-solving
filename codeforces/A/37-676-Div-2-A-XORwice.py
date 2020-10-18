@@ -8,8 +8,4 @@ t = int(input())
 
 for _ in range(t):
     a, b = map(int, input().split())
-    limit = min(a, b)
-    minn = 10 ** 10
-    for i in range(limit + 1):
-        minn = min(minn, (a ^ i) + (b ^ i))
-    print(minn)
+    print(a ^ b)
