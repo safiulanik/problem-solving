@@ -1,7 +1,7 @@
 """
-URL: https://codeforces.com/problemset/problem/1421/A
+URL: https://codeforces.com/problemset/problem/1417/A
 Author: Safiul Kabir [safiulanik at gmail.com]
-Tags: greedy, math
+Tags: greedy, math, *800
 """
 
 t = int(input())
