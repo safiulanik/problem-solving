@@ -1,4 +1,5 @@
 """
+URL: https://codeforces.com/problemset/problem/1433/A
 Author: Safiul Kabir [safiulanik at gmail.com]
 Tags: implementation, math
 """
