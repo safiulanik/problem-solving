@@ -51,7 +51,7 @@ for _ in range(t):
                     ii += 1
                 tmp[-1] = ii
     for i in range(n):
-        ll.append(tmp)
+        ll.append(tmp.copy())
 
     for i in range(n):
         ii = ll[-1][i]
@@ -74,4 +74,3 @@ for _ in range(t):
         for j in range(n):
             print(ll[i][j], end=' ')
         print()
-    print(prime_numbers)
