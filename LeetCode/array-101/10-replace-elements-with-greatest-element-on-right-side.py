@@ -22,7 +22,6 @@ Example 2:
 Input: arr = [400]
 Output: [-1]
 Explanation: There are no elements to the right of index 0.
- 
 
 Constraints:
 1 <= arr.length <= 10^4
@@ -41,7 +40,6 @@ class Solution:
             arr[i] = maxx
             if tmp > maxx:
                 maxx = tmp
-        print(arr)
         return arr
 
 
