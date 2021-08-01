@@ -34,15 +34,14 @@ from typing import List
 class Solution:
     def replaceElements(self, arr: List[int]) -> List[int]:
         ll = len(arr)
-        for i in range(ll):
-            if i == ll-1:
-                arr[i] = -1
-                break
-            maxx = arr[i+1]
-            for j in range(i+2, ll):
-                if arr[j] > maxx:
-                    maxx = arr[j]
+        maxx = arr[-1]
+        arr[-1] = -1
+        for i in range(ll-2, -1, -1):
+            tmp = arr[i]
             arr[i] = maxx
+            if tmp > maxx:
+                maxx = tmp
+        print(arr)
         return arr
 
 
