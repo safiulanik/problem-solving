@@ -7,6 +7,18 @@ class ListNode:
 
 class Solution:
     def reverseList(self, head: ListNode, node: ListNode = None) -> ListNode:
+        """Approach 1: Using loop"""
+        # if head is None:
+        #     return head
+        # node = head
+        # while node.next is not None:
+        #     old_head = head
+        #     head = node.next
+        #     node.next = node.next.next
+        #     head.next = old_head
+        # return head
+
+        """Approach 2: Using recursion"""
         if head is None:
             return head
         if node is None:
