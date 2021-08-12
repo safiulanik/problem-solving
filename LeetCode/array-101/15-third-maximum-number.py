@@ -32,20 +32,19 @@ from typing import List
 
 class Solution:
     def thirdMax(self, nums: List[int]) -> int:
-        maxx = [nums[0]]
-        ll = len(nums)
-        for i in range(1, ll):
+        maxx = [None] * 3
+        for i in range(len(nums)):
             if nums[i] not in maxx:
-                for j in range(len(maxx) - 1, -1, -1):
-                    if maxx[j] < nums[i]:
-                        if len(maxx) < 3:
-                            maxx.append(nums[i])
-                        else:
-                            for k in range(j-1, -1, -1):
-                                maxx[k] = maxx[k+1]
-                            maxx[j] = nums[i]
-        print(nums, maxx)
-        return maxx[0]
+                for j in range(len(maxx)):
+                    if maxx[j] is None:
+                        maxx[j] = nums[i]
+                        break
+                    elif nums[i] > maxx[j]:
+                        for k in range(len(maxx)-1, j, -1):
+                            maxx[k] = maxx[k-1]
+                        maxx[j] = nums[i]
+                        break
+        return maxx[0] if maxx[-1] is None else maxx[-1]
 
 
 """
@@ -55,13 +54,21 @@ Testing:
 input_list = [
     [[3, 2, 1]],
     [[1, 2]],
+    [[3, 2]],
     [[2, 2, 3, 1]],
+    [[1, 2, 3, 4, 5]],
+    [[5, 4, 3, 2, 1]],
 ]
 output_list = [
     1,
     2,
+    3,
     1,
+    3,
+    3,
 ]
 
 for i in range(len(input_list)):
-    assert Solution().thirdMax(*input_list[i]) == output_list[i]
+    result = Solution().thirdMax(*input_list[i])
+    print(result, output_list[i])
+    assert result == output_list[i]
