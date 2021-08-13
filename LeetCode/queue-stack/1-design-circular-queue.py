@@ -49,56 +49,44 @@ class MyCircularQueue:
 
     def __init__(self, k: int):
         self.arr = [None] * k
-        self.front = None
-        self.rear = None
+        self.front = -1
+        self.rear = -1
+        self.size = k
 
     def enQueue(self, value: int) -> bool:
         if self.isFull():
             return False
         if self.isEmpty():
-            self.arr[0] = value
-            self.front = self.rear = 0
-        else:
-            if self.rear == len(self.arr) - 1:
-                self.rear = 0
-            else:
-                self.rear += 1
-            self.arr[self.rear] = value
+            self.front = 0
+
+        self.rear = (self.rear + 1) % self.size
+        self.arr[self.rear] = value
         return True
 
     def deQueue(self) -> bool:
         if self.isEmpty():
             return False
-        if self.front is not None and self.rear is not None and self.front == self.rear:
-            self.front = self.rear = None
-        elif self.front == len(self.arr) - 1:
-            self.front = 0
+        if self.front == self.rear:
+            self.front = self.rear = -1
         else:
-            self.front += 1
+            self.front = (self.front + 1) % self.size
         return True
 
     def Front(self) -> int:
-        if self.front is None:
+        if self.isEmpty():
             return -1
         return self.arr[self.front]
 
     def Rear(self) -> int:
-        if self.rear is None:
+        if self.isEmpty():
             return -1
         return self.arr[self.rear]
 
     def isEmpty(self) -> bool:
-        if self.front is None and self.rear is None:
-            return True
-        return False
+        return self.front == -1
 
     def isFull(self) -> bool:
-        if self.front is None or self.rear is None:
-            return False
-        if self.front == 0 and self.rear == len(self.arr) - 1:
-            return True
-        if self.rear == self.front - 1:
-            return True
+        return (self.rear + 1) % self.size == self.front
 
 
 # Your MyCircularQueue object will be instantiated and called as such:
